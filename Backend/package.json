@@ -1,0 +1,50 @@
+{
+  "name": "gesdoc26",
+  "version": "1.0.0",
+  "description": "gesdoc26 es un sistema para gestión documental que simplifica procesos y aumenta la productividad. Permite el seguimiento y control de tramites.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "Sequelize",
+    "MySQL",
+    "gestión documental",
+    "documentos digitales",
+    "workflow",
+    "backend"
+  ],
+  "author": "Nasif Carina",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.12.0",
+    "next": "^15.1.3",
+    "nodemailer": "^6.10.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.2"
+  }
+}
