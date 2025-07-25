@@ -74,7 +74,7 @@ app.use(express.urlencoded({ extended: true }));
 // **Configuración de sesiones con MySQLStore**
 const sessionStore = new MySQLStore({
   host: process.env.DB_HOST,
-  port: 3306,
+  port: 33108,
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE
