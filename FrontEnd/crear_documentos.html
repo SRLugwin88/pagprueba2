@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documento - Dir. Gral de Estadística y Censo</title>
+  <link rel="icon" type="image/x-icon" href="imagenes/LogoDGEYC.ico" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9; /* gris clarito */
+    }
+
+    header {
+      background-color: #0d3c61;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 32px 32px 32px 32px;
+      min-height: 110px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 300px;
+      height: auto;
+    }
+
+    header h1 {
+      margin-left: 20px;
+      font-size: 20px;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .titulo-con-boton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .titulo-con-boton h2 {
+      margin: 0;
+      color: #0d3c61;
+      font-size: 2rem;
+      text-align: center;
+      letter-spacing: 1px;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .crear-btn,
+    .crear-btn {
+      padding: 10px 22px;
+      background-color: #007bff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-bottom: 0;
+    }
+    .cancelar-btn {
+      padding: 10px 22px;
+      background-color: #e53935;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-bottom: 0;
+    }
+
+    .crear-btn:hover,
+    .crear-btn:hover {
+      background-color: #63b5f6;
+      color: #000;
+    }
+    .cancelar-btn:hover {
+      background-color: #b71c1c;
+      color: #fff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
+      font-size: 18px; 
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 80px;
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .numero-generado {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+      color: #0d3c61;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #63b5f6;
+      color: #000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 38px 20px 38px 20px;
+      font-size: 1.45rem;
+      position: relative;
+      min-height: 170px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1 1 300px;
+      margin: 10px;
+    }
+
+    .footer-right img {
+      width: 210px;
+      height: auto;
+      margin: 10px 120px 10px 0;
+      vertical-align: middle;
+      margin-left: 120px;
+      margin-right: 0;
+    }
+
+    .scroll-top {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* Botón Volver Atrás */
+    .volver-atras-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0d3c61;
+      color: rgb(224, 211, 211);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 0 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.2s;
+      outline: none;
+    }
+
+    .volver-atras-btn:hover, .volver-atras-btn:focus {
+      background-color: #0056b3;
+    }
+
+    .volver-atras-icon {
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 35vw;
+      }
+
+      header h1 {
+        font-size: 16px;
+      }
+
+      .footer-right img {
+        width: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="imagenes/logo.png" alt="Logo Dirección General de Estadística y Censo" />
+    </div>
+  </header>
+
+  <!-- Botón Volver Atrás -->
+  <button 
+    onclick="window.history.back()" 
+    aria-label="Volver atrás"
+    class="volver-atras-btn"
+    tabindex="0"
+  >
+    <span aria-hidden="true" class="volver-atras-icon">&#8592;</span>
+    <span>Volver atrás</span>
+  </button>
+
+  <main>
+    <div class="titulo-con-boton">
+      <h2>Crear Documento</h2>
+    </div>
+
+    <form id="crearDocumentoForm">
+      <!-- <div>
+        <label for="NumeroDoc">Número de Documento:</label>
+        <input type="text" id="NumeroDoc" name="NumeroDoc" required />
+      </div> -->
+
+      <div>
+        <label for="fecha_registro">Fecha de Registro:</label>
+        <input type="date" id="fecha_registro" name="fecha_registro" required />
+      </div>
+
+      <div>
+        <label for="clase">Origen del Documento:</label>
+        <select id="clase" name="clase" required>
+          <option value="Entrada">Entrada</option>
+          <option value="Salida">Salida</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="medio">Medio de E/S:</label>
+        <select id="medio" name="medio" required>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Correo electrónico">Correo electrónico</option>
+          <option value="Correo postal">Correo postal</option>
+          <option value="Papel">Papel</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="tipo_documento">Tipo de Documento:</label>
+        <select id="tipo_documento" name="tipo_documento" required>
+          <option value="Acta">Acta</option>
+          <option value="Factura">Factura</option>
+          <option value="Informe">Informe</option>
+          <option value="Memorándum">Memorándum</option>
+          <option value="Nota">Nota</option>
+          <option value="Resolución">Resolución</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="objetivo">Objetivo:</label>
+        <select id="objetivo" name="objetivo" required>
+          <option value="Requerimiento técnico">Requerimiento técnico</option>
+          <option value="Administrativo">Administrativo</option>
+          <option value="Respuesta">Respuesta</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="estado_doc">Estado del Documento:</label>
+        <select id="estado_doc" name="estado_doc" required>
+          <option value="Iniciado">Iniciado</option>
+          <option value="En trámite">En trámite</option>
+          <option value="Finalizado">Finalizado</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="id_org">Organismo:</label>
+        <select id="id_org" name="id_org" required>
+          <option value="">Seleccione un organismo</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" name="observaciones"></textarea>
+      </div>
+
+      <div class="form-buttons">
+        <button type="submit" class="crear-btn">Crear Documento</button>
+        <button type="button" class="cancelar-btn" onclick="window.location.href='documentos.html'">Cancelar</button>
+      </div>
+    </form>
+    <div id="numero-generado" class="numero-generado"></div>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <p><strong>A cerca de…</strong></p>
+      <p>
+        Somos el organismo rector y coordinador de todas las actividades estadísticas oficiales que se desarrollan en la Provincia de Santiago del Estero según lo establecido en la Ley N° 2.273 y el Decreto Provincial Serie “B” N° 846/68.
+      </p>
+    </div>
+    <div class="footer-center">
+      <p><strong>Ubicación</strong></p>
+      <p>
+        Garibaldi N° 44, 3º product-section<br />
+        contacto@estadisticade.gob.ar<br />
+        +90 385 421777
+      </p>
+    </div>
+    <div class="footer-right">
+      <img src="imagenes/santiago.png" alt="Santiago del Estero" />
+      <img src="imagenes/indec.png" alt="INDEC" />
+    </div>
+    <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</div>
+  </footer>
+
+  <script>
+    document.getElementById("crearDocumentoForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      // Array de campos obligatorios y sus mensajes
+      const campos = [
+        { id: "fecha_registro", mensaje: "Debe seleccionar la Fecha de Registro." },
+        { id: "clase", mensaje: "Debe seleccionar el Origen del Documento." },
+        { id: "medio", mensaje: "Debe seleccionar el Medio de Entrada (E) o Salida (S)." },
+        { id: "tipo_documento", mensaje: "Debe seleccionar el Tipo de Documento." },
+        { id: "objetivo", mensaje: "Debe seleccionar el Objetivo." },
+        { id: "estado_doc", mensaje: "Debe seleccionar el Estado del Documento." },
+        { id: "id_org", mensaje: "Debe seleccionar un Organismo." }
+      ];
+
+      for (const campo of campos) {
+        const valor = document.getElementById(campo.id).value;
+        if (!valor) {
+          alert(campo.mensaje);
+          document.getElementById(campo.id).focus();
+          return;
+        }
+      }
+
+      // Si todo está correcto, continúa con el envío y generación del número
+      const fecha_registro = document.getElementById("fecha_registro").value;
+const clase = document.getElementById("clase").value;
+const medio = document.getElementById("medio").value;
+const tipo_documento = document.getElementById("tipo_documento").value;
+const objetivo = document.getElementById("objetivo").value;
+const estado_doc = document.getElementById("estado_doc").value;
+const observaciones = document.getElementById("observaciones").value;
+const id_org = document.getElementById("id_org").value;
+
+      const datosDocumento = {
+        clase,
+        fecha_registro,
+        medio,
+        tipo_documento,
+        objetivo,
+        estado_doc,
+        id_org,
+        observaciones
+      };
+
+      const urlBackend = "http://localhost:5001/documento/createdocumento";
+
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(urlBackend, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+          },
+          body: JSON.stringify(datosDocumento)
+        });
+
+        const data = await response.json();
+        const numeroGenerado = data.NumeroDoc || data.data?.NumeroDoc || '';
+        if (response.ok) {
+          mostrarModalNumero(numeroGenerado);
+        } else {
+          document.getElementById("numero-generado").style.display = "none";
+          alert("Error: " + (data.error || data.message || 'Error desconocido'));
+        }
+      } catch (error) {
+        document.getElementById("numero-generado").style.display = "none";
+        alert("Error al conectar con el servidor");
+        console.error("Error:", error);
+      }
+    });
+
+    // Modal para mostrar el número generado y limpiar el formulario
+    function mostrarModalNumero(numero) {
+      // Crear modal
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = 0;
+      modal.style.left = 0;
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.background = 'rgba(0,0,0,0.35)';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+      modal.style.zIndex = 9999;
+
+      const contenido = document.createElement('div');
+      contenido.style.background = '#fff';
+      contenido.style.padding = '32px 24px';
+      contenido.style.borderRadius = '12px';
+      contenido.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
+      contenido.style.textAlign = 'center';
+      contenido.innerHTML = `<h3>Documento creado exitosamente</h3><p style='font-size:1.2rem; color:#0d3c61; font-weight:600;'>N° de Documento generado:<br><span style='font-size:1.5rem;'>${numero}</span></p><button id='ok-modal' style='margin-top:18px; padding:10px 28px; background:#007bff; color:#fff; border:none; border-radius:6px; font-size:1.1rem; font-weight:600; cursor:pointer;'>OK</button>`;
+      modal.appendChild(contenido);
+      document.body.appendChild(modal);
+      // Al hacer click en OK, cerrar modal y limpiar formulario
+      document.getElementById('ok-modal').onclick = function() {
+        modal.remove();
+        document.getElementById('crearDocumentoForm').reset();
+      };
+    }
+
+    // Cargar organismos en el select
+    async function cargarOrganismos() {
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch('http://localhost:5001/organismo/getorganismos', {
+          headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+        });
+        if (!res.ok) throw new Error('No se pudieron cargar los organismos');
+        const organismos = await res.json();
+        const select = document.getElementById('id_org');
+        select.innerHTML = '<option value="">Seleccione un organismo</option>';
+        organismos.forEach(org => {
+          const option = document.createElement('option');
+          option.value = org.id_org;
+          option.textContent = `${org.nombre} (${org.tipo ? org.tipo : 'Sin tipo'})`;
+          select.appendChild(option);
+        });
+      } catch (err) {
+        alert('Error al cargar organismos: ' + err.message);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', cargarOrganismos);
+  </script>
+</body>
+</html>

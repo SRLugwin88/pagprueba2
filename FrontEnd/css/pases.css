@@ -1,0 +1,408 @@
+/* === BUSCADOR CON ICONO === */
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  background: #e3eaf6;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(13,60,97,0.07);
+}
+
+.search-row input[type="text"] {
+  height: 44px;
+  font-size: 1.15rem;
+  border: 3.5px solid #0d3c61;
+  border-radius: 8px;
+  outline: none;
+  width: 320px;
+  box-sizing: border-box;
+  padding-left: 16px;
+}
+* {
+      box-sizing: border-box;
+    }
+
+
+html, body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+    header {
+      background-color: #0d3c61;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 18px 24px 14px 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-left: 55px; 
+    }
+
+    .logo img {
+      width: 300px; 
+      height: auto;
+      max-width: 95vw;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+
+    .contenido-principal {
+      margin: 0 auto 32px auto;
+      min-width: 320px;
+      max-width: 95vw;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 40px 2vw 40px 2vw;
+      transition: max-width 0.3s, padding 0.3s;
+    }
+    .contenido {
+      margin: 0 auto 32px auto;
+      min-width: 320px;
+      max-width: 40vw;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 40px 2vw 40px 2vw;
+      transition: max-width 0.3s, padding 0.3s;
+    }
+    h2 {
+      margin-top: 0;
+      color: #0d3c61;
+      font-size: 2.8rem;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    /* === TABLAS IGUAL QUE DOCUMENTOS === */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      background: #fff;
+      font-size: 1.25rem;
+    }
+
+    th, td {
+      border: 1px solid #e0e0e0;
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 1.15em;
+    }
+
+    th {
+      background-color: #0d3c61;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f4f4f9;
+    }
+
+    .acciones {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+
+    .acciones button {
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    button {
+      background-color: #007bff;
+      border: none;
+      color: #000;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s;
+      margin-right: 5px;
+    }
+    button:hover {
+      background-color: #63b5f6;
+    }
+
+    /* === FIN TABLAS IGUAL QUE DOCUMENTOS === */
+
+    .crud-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+      font-size: 1.1rem;
+    }
+
+    label {
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 2px;
+      display: block;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .crud-form input,
+    .crud-form select,
+    .crud-form textarea {
+      padding: 8px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+      resize: vertical;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    .crud-form textarea {
+      min-height: 80px;
+    }
+
+    .crud-form input:focus,
+    .crud-form select:focus,
+    .crud-form textarea:focus {
+      border: 1.5px solid #63b5f6;
+      outline: none;
+    }
+
+    #btn-guardar {
+      background-color: #007bff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    #btn-guardar:hover {
+      background-color: #63b5f6;
+      color: #000;
+    }
+    #btn-cancelar, .cancelar {
+      background-color: #e53935;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    #btn-cancelar:hover, .cancelar:hover {
+      background-color: #b71c1c;
+      color: #fff;
+    }
+    /* Eliminar el margen entre botones */
+    .crud-form button + button {
+      margin-left: 0;
+    }
+
+footer {
+  background-color: #63b5f6;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 14px 22px 14px 22px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1 1 300px;
+      margin: 30px;
+      font-size: 1.3rem;
+    }
+
+    .footer-left {
+      margin-left: 40px;
+    }
+
+    .footer-right img {
+      width: 200px;
+      height: auto;
+      margin: 0 30px 0 0;
+      vertical-align: middle;
+    }
+    /* Logo header margen izquierdo */
+    .logo {
+      margin-left: 40px;
+    }
+
+    .footer-right img:last-child {
+      margin-right: 0;
+      margin-left: 30px;
+    }
+
+    .scroll-top {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+    @media (max-width: 1200px) {
+      .contenido {
+        max-width: 99vw;
+        padding: 24px 1vw;
+      }
+    }
+    @media (max-width: 900px) {
+      .contenido {
+        max-width: 100vw;
+        padding: 12px 0.5vw;
+      }
+      .logo img {
+        width: 35vw;
+      }
+      .footer-right img {
+        width: 60px;
+      }
+      table, th, td {
+        font-size: 13px;
+      }
+    }
+    @media (max-width: 600px) {
+      .contenido {
+        max-width: 100vw;
+        padding: 6px 0;
+      }
+      table, th, td {
+        font-size: 13px;
+      }
+      th, td {
+        padding: 6px 4px;
+      }
+    }
+
+    /* Estilo para el botón Volver Atrás */
+    .volver-atras-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0d3c61;
+      color: rgb(224, 211, 211);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 0 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      transition: background 0.2s;
+      outline: none;
+      max-width: 220px;
+      min-width: 140px;
+      width: fit-content;
+      white-space: nowrap;
+    }
+
+    .volver-atras-btn:hover {
+      background-color: #63b5f6;
+    }
+
+    .volver-atras-icon {
+      font-size: 22px;
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    /* Botón Editar en tabla de pases */
+    .editar {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.08rem;
+      font-weight: bold;
+      background-color:  #007bff;
+      color: #000;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .editar:hover, .editar:focus {
+      background-color: #0d3c61;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Botón Crear Pase */
+    .crear-pase {
+      background-color: #007bff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 20px;
+      font-size: 1.08rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-right: auto;
+      display: block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      letter-spacing: 0.5px;
+    }
+    .crear-pase:hover, .crear-pase:focus {
+      background-color: #0d3c61;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }

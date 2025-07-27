@@ -1,0 +1,411 @@
+* {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+header {
+  background-color: #0d3c61;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 18px 24px 14px 24px; /* un poco más de altura que antes, pero menos que el original */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+  max-width: 90vw;
+}
+
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contenido {
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      padding: 32px 16px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0d3c61;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .crear-departamento {
+      background-color: #007bff ;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      padding: 10px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: block;
+    }
+
+    .crear-departamento:hover {
+      background-color: #63b5f6;
+    }
+
+    /* Tabla de departamentos */
+    .tabla-departamentos {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .tabla-departamentos th, .tabla-departamentos td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .tabla-departamentos th {
+      background-color: #0d3c61;
+      color: white;
+    }
+
+    .acciones {
+      display: flex;
+      gap: 8px;
+    }
+
+    .editar-btn, .eliminar-btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .editar-btn {
+      background-color: #007bff ;
+      color: rgb(0, 0, 0);
+    }
+
+    .editar-btn:hover {
+      background-color: #63b5f6 ;
+    }
+
+    .eliminar-btn {
+      background-color: #d32f2f;
+      color:rgb(0, 0, 0);
+    }
+
+    .eliminar-btn:hover {
+      background-color: #c62828;
+    }
+
+    /* Footer */
+footer {
+  background-color: #63b5f6;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 14px 22px 14px 22px; 
+  font-size: 1rem;
+  position: relative;
+  min-height: unset;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1 1 300px;
+  margin: 8px;
+  font-size: 1.3rem;
+}
+
+.footer-left {
+  margin-left: 24px;
+}
+
+.footer-right img {
+  width: 180px;
+  height: auto;
+  margin-right: 12px;
+  margin-left: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.footer-right img:last-child {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.scroll-top {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+    /* Botón Volver Atrás */
+    .btn-volver {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0d3c61;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #0056b3;
+    }
+
+    /* Botón Crear Departamento */
+    #btn-abrir-modal {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease;
+    }
+
+    #btn-abrir-modal:hover {
+      background-color: #0056b3;
+    }
+
+    /* Ajustes generales para botones */
+    button {
+      outline: none;
+    }
+
+    /* Estilo para el modal */
+    .modal {
+      display: none; /* Ocultar el modal por defecto */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10000;
+      background: rgba(0,0,0,0.25);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Estilo para el contenido del modal */
+    .modal-contenido {
+      background-color: #fff;
+      padding: 48px 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+      text-align: center;
+      max-width: 600px;
+      min-width: 380px;
+      width: 98vw;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Aumentar tamaño de los campos de entrada en el modal */
+    .modal-contenido input[type="text"],
+    .modal-contenido input[type="number"],
+    .modal-contenido input[type="email"],
+    .modal-contenido select,
+    .modal-contenido textarea {
+      font-size: 1.25rem;
+      padding: 14px 16px;
+      width: 100%;
+      max-width: 95vw;
+      width: 540px;
+      min-width: 260px;
+      border-radius: 8px;
+      border: 1px solid #bdbdbd;
+      margin-bottom: 18px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    .modal-contenido input[type="text"]:focus,
+    .modal-contenido input[type="number"]:focus,
+    .modal-contenido input[type="email"]:focus,
+    .modal-contenido select:focus,
+    .modal-contenido textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    /* Modal Actions */
+    .modal-acciones {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      gap: 18px;
+    }
+
+    .modal-acciones button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .modal-acciones button:first-child {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .modal-acciones button:first-child:hover {
+      background-color: #0056b3;
+    }
+
+    .modal-acciones button:last-child {
+      background-color: #e57373;
+      color: #fff;
+    }
+
+    .modal-acciones button:last-child:hover {
+      background-color: #c62828;
+    }
+
+    /* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .logo img {
+    width: 35vw;
+  }
+  .footer-right img {
+    width: 60px;
+  }
+  .contenido {
+    padding: 16px 2vw;
+  }
+  header {
+    padding: 16px 10px 12px 10px;
+  }
+  footer {
+    padding: 7px 8px 8px 8px;
+  }
+  .modal-contenido {
+    max-width: 98vw;
+    min-width: unset;
+    width: 98vw;
+    padding: 18px 8px;
+  }
+  .footer-left, .footer-center, .footer-right {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contenido {
+    padding: 8px 0;
+  }
+  header {
+    padding: 10px 4px 8px 4px;
+  }
+  footer {
+    padding: 4px 4px 6px 4px;
+  }
+  .modal-contenido {
+    max-width: 99vw;
+    min-width: unset;
+    width: 99vw;
+    padding: 10px 2px;
+  }
+  .footer-left, .footer-center, .footer-right {
+    font-size: 0.95rem;
+  }
+}
+
+    .botones-header {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .volver-atras-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0d3c61;
+      color: rgb(224, 211, 211);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 0 24px;
+      position: static;
+      left: 0;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.2s;
+      outline: none;
+    }
+
+    .volver-atras-btn:hover, .volver-atras-btn:focus {
+      background-color: #0056b3;
+    }
+
+    .volver-atras-icon {
+      font-size: 22px;
+    }
+
+    .modal-contenido label[for="nombre-departamento"],
+.modal-contenido label[for="editar-nombre-departamento"] {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #0d3c61;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.botones-header.fuera-main {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  margin-top: -10px;
+  margin-bottom: 0;
+  padding: 0;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dirección Gral de Estadística y Censos -SDE</title>
+  <link rel="icon" type="image/x-icon" href="imagenes/LogoDGEYC.ico" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="imagenes/logo.png" alt="Logo">
+    </div>
+  </header>
+
+  <div class="contenedor">
+    <!-- Login -->
+    <form id="loginForm">
+      <h2>Iniciar Sesión</h2>
+      <div class="form-group">
+        <label for="login-username">Usuario</label>
+        <input type="text" id="login-username" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Contraseña</label>
+        <input type="password" id="login-password" required>
+      </div>
+      <button type="button" onclick="iniciarSesion()">Iniciar Sesión</button>
+      <div class="toggle-link">
+        ¿No tienes cuenta? <a href="registro_usuario.html">Regístrate</a>
+      </div>
+      <div class="toggle-link" style="margin-top: 18px;">
+        <a href="recuperar_contraseña.html">¿Olvidaste tu contraseña?</a>
+      </div>
+    </form>
+
+    <!-- Registro -->
+    <form id="registerForm" class="hidden">
+      <h2>Registro</h2>
+      <div class="form-group">
+        <label for="register-username">Usuario</label>
+        <input type="text" id="register-username" required>
+      </div>
+      <div class="form-group">
+        <label for="register-email">Correo Electrónico</label>
+        <input type="email" id="register-email" required>
+      </div>
+      <div class="form-group">
+        <label for="register-password">Contraseña</label>
+        <input type="password" id="register-password" required>
+      </div>
+      <button type="submit">Registrarse</button>
+      <div class="toggle-link">
+        ¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Inicia Sesión</a>
+      </div>
+    </form>
+
+    <!-- Recuperar contraseña -->
+    <form id="recuperarForm" class="hidden">
+      <h2>Recuperar Contraseña</h2>
+      <div class="form-group">
+        <label for="recuperar-email">Correo Electrónico</label>
+        <input type="email" id="recuperar-email" required>
+      </div>
+      <button type="button" onclick="recuperarContraseña()">Enviar Código</button>
+      <div class="toggle-link">
+        <a href="#" onclick="toggleForms()">Volver al inicio</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <p><strong>Acerca de…</strong></p>
+      <p>Somos el organismo rector y coordinador de todas las actividades estadísticas oficiales en Santiago del Estero.</p>
+    </div>
+    <div class="footer-center">
+      <p><strong>Ubicación</strong></p>
+      <p>Garibaldi N° 44, 3º piso<br> contacto@estadisticade.gob.ar<br> +90 385 421777</p>
+    </div>
+    <div class="footer-right">
+      <img src="imagenes/santiago.png" alt="Santiago del Estero">
+      <img src="imagenes/indec.png" alt="INDEC">
+    </div>
+    <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</div>
+  </footer>
+
+  <!-- Modal de Éxito -->
+  <div id="modalExito" class="modal hidden">
+    <div class="modal-content">
+      <h3>Éxito</h3>
+      <p id="mensajeExito">Operación realizada exitosamente.</p>
+      <div class="modal-actions">
+        <button onclick="cerrarModal('modalExito')">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Error -->
+  <div id="modalError" class="modal hidden">
+    <div class="modal-content">
+      <h3>Error</h3>
+      <p id="mensajeError">Ha ocurrido un error.</p>
+      <div class="modal-actions">
+        <button onclick="cerrarModal('modalError')">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmación -->
+  <div id="modalConfirmacion" class="modal hidden">
+    <div class="modal-content">
+      <h3>Confirmación</h3>
+      <p id="mensajeConfirmacion">¿Está seguro de realizar esta acción?</p>
+      <div class="modal-actions">
+        <button id="btnConfirmar">Sí</button>
+        <button onclick="cerrarModal('modalConfirmacion')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

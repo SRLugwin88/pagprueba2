@@ -1,0 +1,55 @@
+.volver-atras-container {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin: 0 auto 10px auto;
+}
+.volver-atras-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0d3c61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.volver-atras-btn:hover {
+  background-color: #08304e;
+}
+.volver-atras-icon {
+  font-size: 1.2em;
+  margin-right: 2px;
+}
+
+/* Estilos específicos para recuperar_contraseña.html */
+
+.form-title {
+  text-align: center;
+  color: #0d3c61;
+  margin-bottom: 32px;
+  font-size: 2.1em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#recuperarForm button[type="submit"] {
+  font-size: 1.13em;
+  padding: 12px 18px;
+}
+
+.btn-secondary {
+  width: 100%;
+  font-size: 1em;
+  padding: 12px 18px;
+  margin-top: 10px;
+}
+
+.contenedor {
+  max-width: 600px;
+}

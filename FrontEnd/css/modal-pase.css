@@ -1,0 +1,157 @@
+/* Fondo del modal de edición de pase */
+.modal-editar-pase-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor del modal de edición de pase */
+.modal-editar-pase {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 40px 48px 32px 48px;
+  min-width: 420px;
+  max-width: 98vw;
+  width: 700px;
+  position: relative;
+  font-size: 1.15rem;
+}
+
+.modal-editar-pase h3 {
+  margin-top: 0;
+  color: #0d3c61;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.modal-editar-pase label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #0d3c61;
+}
+
+.modal-editar-pase input[type="text"],
+.modal-editar-pase textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #b0bec5;
+  background: #f3f3f3;
+  font-size: 1.1rem;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  resize: vertical;
+}
+
+.modal-editar-pase textarea {
+  min-height: 80px;
+  max-height: 200px;
+}
+
+.modal-editar-pase-botones {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+.btn-guardar-modal {
+  background: #0d3c61;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-guardar-modal:hover {
+  background: #1976d2;
+}
+
+.btn-cancelar-modal {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-cancelar-modal:hover {
+  background: #b71c1c;
+}
+
+.cerrar-modal-editar-pase {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #0d3c61;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.cerrar-modal-editar-pase:hover {
+  color: #e53935;
+}/* Modal de edición de pase (hereda de documento.css) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modal-actions button:first-child {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.modal-actions button:last-child {
+  background-color: #e57373;
+  color: #fff;
+}

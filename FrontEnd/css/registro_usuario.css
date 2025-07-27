@@ -1,0 +1,239 @@
+.volver-atras-container {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin: 24px 0 10px 24px;
+}
+.volver-atras-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0d3c61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 10px 16px;
+  min-width: 120px;
+  max-width: 180px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.volver-atras-btn:hover {
+  background-color: #08304e;
+}
+.volver-atras-icon {
+  font-size: 1.2em;
+  margin-right: 2px;
+}
+/* css/registro_usuario.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+
+header {
+  background-color: #0d3c61;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 36px 10px 36px 10px;
+  min-height: 110px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 300px;
+  max-width: 90vw;
+  height: auto;
+  transition: width 0.2s;
+  margin-left: 60px;
+}
+
+/*  Contenedor de formularios */
+.contenedor {
+  max-width: 700px;
+  margin: 50px auto;
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+h2 {
+  color: #0d3c61;
+  margin-bottom: 24px;
+  font-size: 2.2em;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.35em;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.18em;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #0d3c61;
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 60, 97, 0.3);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-weight: normal;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.18em;
+  margin-bottom: 12px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  margin-bottom: 0;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.required {
+  color: #dc3545;
+}
+
+/*  Footer */
+footer {
+  background-color: #63b5f6;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 24px 20px 24px 48px;
+  font-size: 1.18rem;
+  position: relative;
+  margin-top: 20px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  font-size: 1.08em;
+  flex: 1 1 300px;
+  margin: 10px 10px 10px 32px;
+}
+
+.footer-right img {
+  width: 170px;
+  height: auto;
+  margin: 10px;
+}
+
+.scroll-top {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*  Diseño responsive */
+@media (max-width: 768px) {
+  .logo img {
+    width: 35vw;
+  }
+
+  .footer-right img {
+    width: 60px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .contenedor {
+    margin: 20px;
+    max-width: none;
+  }
+}

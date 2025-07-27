@@ -1,0 +1,193 @@
+* {
+      box-sizing: border-box;
+    }
+
+html, body {
+  height: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+main {
+  flex: 1;
+  display: block;
+  padding: 20px;
+  height: 63vh;
+}
+
+.volver-atras-btn {
+  align-self: flex-start;
+  width: auto;
+  margin-top: 32px;
+  margin-left: 40px;
+}
+
+    /* Header */
+header {
+  background-color: #0d3c61;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+ }
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+  gap: 18px;
+}
+
+main {
+  padding: 20px;
+  height: 63vh;
+}
+
+.contenido {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  padding: 32px 20px 40px;
+}
+
+    /* Títulos */
+h2 {
+  color: #0d3c61;
+  font-size: 45px;
+  margin: 20px 0 38px 0;
+  text-align: center;
+}
+
+
+    /* Estilos para la tabla */
+    .tabla-empleados {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 30px; 
+    }
+
+  .tabla-empleados th, .tabla-empleados td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 20px; /* Tamaño de fuente para los datos de la tabla */
+  }
+  
+    .tabla-empleados th {
+      background-color: #0d3c61;
+      color: white;
+    }
+
+    .acciones {
+      display: flex;
+      gap: 8px;
+    }
+
+    .editar-btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      background-color: #007bff ;
+      color: white;
+    }
+
+    .editar-btn:hover {
+      background-color: #63b5f6 ;
+    }
+
+    .eliminar-btn { /* Ocultamos el botón "Eliminar" */
+      display: none;
+    }
+
+    .filtros {
+      display: none; /* Ocultamos completamente el div de filtros */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #63b5f6;
+      color: #000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      font-size: 16px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1 1 300px;
+      margin: 10px;
+      font-size: 1.25rem;
+      margin-left: 24px; 
+    }
+
+    .footer-right img {
+      width: 180px;
+      height: auto;
+      margin: 10px;
+      margin-top: 10px;
+    }
+
+    .scroll-top {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Botón Volver Atrás */
+    .volver-atras-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0d3c61;
+      color: rgb(224, 211, 211);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.2s;
+      outline: none;
+    }
+    .volver-atras-btn:hover, .volver-atras-btn:focus {
+      background-color: #0056b3;
+    }
+    .volver-atras-icon {
+      font-size: 22px;
+     
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .logo img {
+        width: 20vw;
+      }
+
+      .footer-right img {
+        width: 80px;
+      }
+    }

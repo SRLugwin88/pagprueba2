@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organismos - Dir. Gral de Estadística y Censo</title>
+  <link rel="icon" type="image/x-icon" href="imagenes/LogoDGEYC.ico" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9; /* gris clarito */
+    }
+
+    header {
+      background-color: #0d3c61;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 300px;
+      height: auto;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+      height: 30vw;
+    }
+
+    .contenido {
+      margin: 0 auto;
+      max-width: 1100px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      padding: 32px 16px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #0d3c61;
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #e0e0e0;
+      padding: 10px 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #0d3c61;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f4f4f9;
+    }
+
+    .acciones {
+      display: flex;
+      gap: 8px;
+    }
+
+    .editar, .eliminar {
+      padding: 5px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .editar {
+      background-color: #007bff;
+      color: rgb(0,0,0);
+    }
+
+    .editar:hover {
+      background-color: #63b5f6;
+    }
+
+    .eliminar {
+      background-color: #d32f2f;
+      color: rgb(0,0,0);
+    }
+
+    .eliminar:hover {
+      background-color: #c62828;
+    }
+
+    .crear-organismo {
+      background-color: #007bff;
+      color: rgb(0,0,0);
+      border: none;
+      border-radius: 5px;
+      padding: 10px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-right: auto;
+      display: block;
+    }
+
+    .crear-organismo:hover {
+      background-color: #63b5f6;
+    }
+
+    footer {
+      background-color: #63b5f6;
+      color: #000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      font-size: 16px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1 1 300px;
+      margin: 10px;
+      font-size: 1.25rem;
+      margin-left: 24px; 
+    }
+
+    .footer-right img {
+      width: 180px;
+      height: auto;
+      margin: 10px;
+    }
+
+    .scroll-top {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Diseño responsive para móviles */
+    @media (max-width: 768px) {
+      .logo img {
+        width: 35vw;
+      }
+
+      .footer-right img {
+        width: 60px;
+      }
+
+      .contenido {
+        padding: 16px 2vw;
+      }
+
+      table, th, td {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contenido {
+        padding: 8px 0;
+      }
+      table, th, td {
+        font-size: 12px;
+      }
+      th, td {
+        padding: 6px 4px;
+      }
+    }
+
+    /* Botón Volver Atrás */
+    .volver-atras-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0d3c61;
+      color: rgb(224, 211, 211);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 0 24px; /* solo margen a la izquierda */
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.2s;
+      outline: none;
+    }
+    .volver-atras-btn:hover, .volver-atras-btn:focus {
+      background-color: #0056b3;
+    }
+    .volver-atras-icon {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="imagenes/logo.png" alt="Logo" />
+    </div>
+  </header>
+
+  <!-- Botón Volver Atrás -->
+  <button 
+    onclick="window.history.back()" 
+    aria-label="Volver atrás"
+    class="volver-atras-btn"
+    tabindex="0"
+  >
+    <span aria-hidden="true" class="volver-atras-icon">&#8592;</span>
+    <span>Volver atrás</span>
+  </button>
+
+  <main>
+    <div class="contenido">
+      <h2> Organismos</h2>
+      <button class="crear-organismo" type="button" onclick="window.location.href='crear_organismo.html'">+ Crear Organismo</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-organismos">
+          <tr>
+            <td>Ejemplo Org 1</td>
+            <td>Nacional</td>
+            <td>Calle Falsa 123</td>
+            <td>123456789</td>
+            <td>org1@ejemplo.com</td>
+            <td class="acciones">
+              <button class="editar" type="button">Editar</button>
+              <button class="eliminar" type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Ejemplo Org 2</td>
+            <td>Provincial</td>
+            <td>Av. Siempre Viva 742</td>
+            <td>987654321</td>
+            <td>org2@ejemplo.com</td>
+            <td class="acciones">
+              <button class="editar" type="button">Editar</button>
+              <button class="eliminar" type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-left">
+      <p><strong>A cerca de…</strong></p>
+      <p>
+        Somos el organismo rector y coordinador de todas las actividades estadísticas oficiales que se desarrollan en la Provincia de Santiago del Estero según lo establecido en la Ley N° 2.273 y el Decreto Provincial Serie “B” N° 846/68.
+      </p>
+    </div>
+    <div class="footer-center">
+      <p><strong>Ubicación</strong></p>
+      <p>
+        Garibaldi N° 44, 3º product-section<br />
+        contacto@estadisticade.gob.ar<br />
+        +90 385 421777
+      </p>
+    </div>
+    <div class="footer-right">
+      <img src="imagenes/santiago.png" alt="Santiago del Estero" />
+      <img src="imagenes/indec.png" alt="INDEC" />
+    </div>
+    <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</div>
+  </footer>
+
+  <script>
+    // URL base del backend
+    const API_URL = 'http://localhost:5001/organismo';
+
+    // Elementos DOM
+    const tablaOrganismos = document.getElementById('tabla-organismos');
+    const crearBtn = document.querySelector('.crear-organismo');
+
+    // Token JWT
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('No autenticado. Por favor, inicie sesión.');
+      window.location.href = 'index.html';
+    }
+
+    // Función para mostrar mensaje de feedback
+    function mostrarMensaje(msg, tipo = 'info') {
+      let div = document.createElement('div');
+      div.textContent = msg;
+      div.style.position = 'fixed';
+      div.style.top = '20px';
+      div.style.left = '50%';
+      div.style.transform = 'translateX(-50%)';
+      div.style.background = tipo === 'error' ? '#e57373' : '#63b5f6';
+      div.style.color = '#000';
+      div.style.padding = '12px 24px';
+      div.style.borderRadius = '8px';
+      div.style.fontWeight = 'bold';
+      div.style.zIndex = 9999;
+      document.body.appendChild(div);
+      setTimeout(() => div.remove(), 2500);
+    }
+
+    // Cargar organismos y renderizar tabla
+    async function cargarOrganismos() {
+      tablaOrganismos.innerHTML = '<tr><td colspan="6">Cargando...</td></tr>';
+      try {
+        const res = await fetch(`${API_URL}/getorganismos`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('No autorizado o error al obtener organismos');
+        const organismos = await res.json();
+        if (!Array.isArray(organismos) || organismos.length === 0) {
+          tablaOrganismos.innerHTML = '<tr><td colspan="6">No hay organismos registrados.</td></tr>';
+          return;
+        }
+        tablaOrganismos.innerHTML = '';
+        organismos.forEach(org => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${org.nombre || ''}</td>
+            <td>${org.tipo || ''}</td>
+            <td>${org.direccion || ''}</td>
+            <td>${org.telefono || ''}</td>
+            <td>${org.email || ''}</td>
+            <td class="acciones">
+              <button class="editar" data-id="${org.id_org}">Editar</button>
+              <button class="eliminar" data-id="${org.id_org}">Eliminar</button>
+            </td>
+          `;
+          tablaOrganismos.appendChild(tr);
+        });
+      } catch (err) {
+        tablaOrganismos.innerHTML = '<tr><td colspan="6">Error al cargar organismos.</td></tr>';
+        mostrarMensaje(err.message, 'error');
+      }
+    }
+
+    // Modal simple para crear/editar organismo
+    function mostrarModalOrganismo({modo, organismo = {}}) {
+      // Crear modal
+      let modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = 0;
+      modal.style.left = 0;
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.background = 'rgba(0,0,0,0.25)';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+      modal.style.zIndex = 10000;
+      modal.innerHTML = `
+        <form id="form-organismo" style="background:#fff;padding:32px 24px;border-radius:10px;min-width:320px;max-width:90vw;box-shadow:0 4px 16px rgba(0,0,0,0.13);display:flex;flex-direction:column;gap:16px;">
+          <h3 style="margin:0 0 12px 0;text-align:center;color:#0d3c61;">${modo === 'editar' ? 'Editar' : 'Crear'} Organismo</h3>
+          <input type="text" name="nombre" placeholder="Nombre*" value="${organismo.nombre || ''}" required style="padding:8px;font-size:16px;" />
+          <input type="text" name="tipo" placeholder="Tipo*" value="${organismo.tipo || ''}" required style="padding:8px;font-size:16px;" />
+          <input type="text" name="direccion" placeholder="Dirección" value="${organismo.direccion || ''}" style="padding:8px;font-size:16px;" />
+          <input type="text" name="telefono" placeholder="Teléfono" value="${organismo.telefono || ''}" style="padding:8px;font-size:16px;" />
+          <input type="email" name="email" placeholder="Email" value="${organismo.email || ''}" style="padding:8px;font-size:16px;" />
+          <div style="display:flex;gap:12px;justify-content:center;">
+            <button type="submit" style="background:#007bff;color:#fff;padding:8px 18px;border:none;border-radius:5px;font-weight:600;font-size:16px;">${modo === 'editar' ? 'Guardar' : 'Crear'}</button>
+            <button type="button" id="cancelar-modal" style="background:#e57373;color:#fff;padding:8px 18px;border:none;border-radius:5px;font-weight:600;font-size:16px;">Cancelar</button>
+          </div>
+        </form>
+      `;
+      document.body.appendChild(modal);
+      // Cerrar modal
+      modal.querySelector('#cancelar-modal').onclick = () => modal.remove();
+      // Enviar formulario
+      modal.querySelector('#form-organismo').onsubmit = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const datos = {
+          nombre: form.nombre.value.trim(),
+          tipo: form.tipo.value.trim(),
+          direccion: form.direccion.value.trim(),
+          telefono: form.telefono.value.trim(),
+          email: form.email.value.trim(),
+        };
+        try {
+          let res;
+          if (modo === 'editar') {
+            res = await fetch(`${API_URL}/updateorganismo/${organismo.id_org}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
+              body: JSON.stringify(datos)
+            });
+          } else {
+            res = await fetch(`${API_URL}/createorganismo`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
+              body: JSON.stringify(datos)
+            });
+          }
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.message || data.error || 'Error en la operación');
+          mostrarMensaje(modo === 'editar' ? 'Organismo actualizado' : 'Organismo creado', 'info');
+          modal.remove();
+          cargarOrganismos();
+        } catch (err) {
+          mostrarMensaje(err.message, 'error');
+        }
+      };
+    }
+
+    // Delegación de eventos para Editar y Eliminar
+    tablaOrganismos.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('editar')) {
+        // Obtener datos del organismo seleccionado
+        const id = e.target.dataset.id;
+        // Buscar datos actuales en la tabla
+        const fila = e.target.closest('tr');
+        const organismo = {
+          id_org: id,
+          nombre: fila.children[0].textContent,
+          tipo: fila.children[1].textContent,
+          direccion: fila.children[2].textContent,
+          telefono: fila.children[3].textContent,
+          email: fila.children[4].textContent,
+        };
+        mostrarModalOrganismo({modo: 'editar', organismo});
+      }
+      if (e.target.classList.contains('eliminar')) {
+        const id = e.target.dataset.id;
+        if (confirm('¿Está seguro de que desea eliminar este organismo?')) {
+          try {
+            const res = await fetch(`${API_URL}/deleteorganismo/${id}`, {
+              method: 'DELETE',
+              headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || data.error || 'Error al eliminar');
+            mostrarMensaje('Organismo eliminado', 'info');
+            cargarOrganismos();
+          } catch (err) {
+            mostrarMensaje(err.message, 'error');
+          }
+        }
+      }
+    });
+
+    // Cargar organismos al iniciar
+    cargarOrganismos();
+  </script>
+</body>
+</html>
