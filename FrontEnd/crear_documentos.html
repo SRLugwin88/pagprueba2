@@ -405,7 +405,7 @@ const id_org = document.getElementById("id_org").value;
         observaciones
       };
 
-      const urlBackend = "http://localhost:5001/documento/createdocumento";
+      const urlBackend = "http://pagprueba2-production-b22b.up.railway.app/documento/createdocumento";
 
       try {
         const token = localStorage.getItem('token');
@@ -468,7 +468,7 @@ const id_org = document.getElementById("id_org").value;
     async function cargarOrganismos() {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5001/organismo/getorganismos', {
+        const res = await fetch('http://pagprueba2-production-b22b.up.railway.app/organismo/getorganismos', {
           headers: token ? { 'Authorization': `Bearer ${token}` } : {}
         });
         if (!res.ok) throw new Error('No se pudieron cargar los organismos');
