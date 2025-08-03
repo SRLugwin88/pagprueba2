@@ -87,7 +87,7 @@ const api = {
   // Obtener departamentos
   obtenerDepartamentos: async function() {
     try {
-      const response = await fetch('http://localhost:5001/departamento/getdepartamentos');
+      const response = await fetch('pagprueba2-production-b22b.up.railway.app');
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
@@ -109,7 +109,7 @@ const api = {
   // Registrar usuario
   registrarUsuario: async function(datosUsuario) {
     try {
-      const response = await fetch('http://localhost:5001/usuario/createUsuario', {
+      const response = await fetch('pagprueba2-production-b22b.up.railway.app', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
