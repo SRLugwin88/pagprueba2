@@ -1,5 +1,5 @@
 // Configuración de la API
-const API_BASE_URL = 'pagprueba2-production-b22b.up.railway.app';
+const API_BASE_URL = 'VITE_API_BASE_URL';
 
 // Variables globales
 let usuariosData = [];
