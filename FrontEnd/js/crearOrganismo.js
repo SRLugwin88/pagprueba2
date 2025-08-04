@@ -11,7 +11,7 @@ document.getElementById("form-organismo").addEventListener("submit", async funct
   const datos = { nombre, tipo, direccion, telefono, email };
   try {
     const token = localStorage.getItem('token');
-    const response = await fetch("http://localhost:5001/organismo/createorganismo", {
+    const response = await fetch("pagprueba2-production-b22b.up.railway.app/organismo/createorganismo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

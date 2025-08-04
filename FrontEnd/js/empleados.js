@@ -25,7 +25,7 @@ async function obtenerDepartamentos() {
   const token = localStorage.getItem('token');
   if (!token) return [];
   try {
-    const res = await fetch('http://localhost:5001/departamento/getDepartamentos', {
+    const res = await fetch('pagprueba2-production-b22b.up.railway.app/departamento/getDepartamentos', {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (!res.ok) throw new Error('Error al obtener departamentos');
@@ -130,7 +130,7 @@ async function cargarEmpleados() {
     return;
   }
   try {
-    const response = await fetch("http://localhost:5001/empleado/getEmpleados", {
+    const response = await fetch("pagprueba2-production-b22b.up.railway.app/empleado/getEmpleados", {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,

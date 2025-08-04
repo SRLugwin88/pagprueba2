@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       if (hayError) return;
       try {
-        const res = await fetch(`http://localhost:5001/pase/updatePase/${pase.id_pase}`, {
+        const res = await fetch(`pagprueba2-production-b22b.up.railway.app/pase/updatePase/${pase.id_pase}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tablaPases = document.getElementById('tabla-pases');
     if (tablaPases) tablaPases.innerHTML = '<tr><td colspan="9">Cargando...</td></tr>';
     try {
-      const url = 'http://localhost:5001/pase/getPases';
+      const url = 'pagprueba2-production-b22b.up.railway.app/pase/getPases';
       const res = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const user = localStorage.getItem('user');
       console.log('[DEBUG token]', token);
       console.log('[DEBUG user]', user);
-      departamentos = await fetchData('http://localhost:5001/departamento/getdepartamentos', {
+      departamentos = await fetchData('pagprueba2-production-b22b.up.railway.app/departamento/getdepartamentos', {
         'Authorization': `Bearer ${token}`
       });
       console.log('[DEBUG departamentos]', departamentos);
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Cargar empleados si existe el select
   async function cargarEmpleados() {
-    empleados = await fetchData('http://localhost:5001/empleado/getempleados', {
+    empleados = await fetchData('pagprueba2-production-b22b.up.railway.app/empleado/getempleados', {
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
     if (selectReceptor) {
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Cargar documentos si existe el select
   async function cargarDocumentos() {
-    const documentos = await fetchData('http://localhost:5001/documento/getdocumentos', {
+    const documentos = await fetchData('pagprueba2-production-b22b.up.railway.app/documento/getdocumentos', {
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
     if (selectDocumento) {
@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!departamentoDestino) return alert('Error: El departamento destino no es válido.');
     if (!receptor) return alert('Error: El receptor seleccionado no es válido.');
     try {
-      const res = await fetch('http://localhost:5001/pase/createPase', {
+      const res = await fetch('pagprueba2-production-b22b.up.railway.app/pase/createPase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
