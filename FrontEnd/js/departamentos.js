@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
       try {
-        const res = await fetch("pagprueba2-production-b22b.up.railway.app/departamento/createdepartamento", {
+        const res = await fetch("https://pagprueba2-production-b22b.up.railway.app/departamento/createdepartamento", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       try {
-        const res = await fetch(`pagprueba2-production-b22b.up.railway.app/departamento/updatedepartamento/${idDepartamento}`, {
+        const res = await fetch(`https://pagprueba2-production-b22b.up.railway.app/departamento/updatedepartamento/${idDepartamento}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Cargar departamentos en la tabla
   async function cargarDepartamentos() {
     try {
-      const res = await fetch("pagprueba2-production-b22b.up.railway.app/departamento/getdepartamentos", {
+      const res = await fetch("https://pagprueba2-production-b22b.up.railway.app/departamento/getdepartamentos", {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("token")}`
         }

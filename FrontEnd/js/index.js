@@ -11,7 +11,7 @@ async function iniciarSesion() {
 
   try {
     // Cambia la URL según el puerto real de tu backend
-    const backendUrl = 'pagprueba2-production-b22b.up.railway.app/auth/login';
+    const backendUrl = 'https://pagprueba2-production-b22b.up.railway.app/auth/login';
     const res = await fetch(backendUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

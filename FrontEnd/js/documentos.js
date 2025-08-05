@@ -63,7 +63,7 @@ function renderizarTablaDocumentos(arr) {
 async function cargarDocumentos() {
   try {
     const token = localStorage.getItem('token');
-    const res = await fetch('pagprueba2-production-b22b.up.railway.app/documento/getdocumentos', {
+    const res = await fetch('https://pagprueba2-production-b22b.up.railway.app/documento/getdocumentos', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       const token = localStorage.getItem('token');
       // Obtener datos del documento
-      const resDoc = await fetch(`pagprueba2-production-b22b.up.railway.app/documento/getdocumentos`, {
+      const resDoc = await fetch(`https://pagprueba2-production-b22b.up.railway.app/documento/getdocumentos`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!resDoc.ok) throw new Error('No se pudo obtener el documento');
@@ -183,13 +183,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!documento) throw new Error('Documento no encontrado');
 
       // Obtener enums
-      const resEnum = await fetch('pagprueba2-production-b22b.up.railway.app/documento/enum-options', {
+      const resEnum = await fetch('https://pagprueba2-production-b22b.up.railway.app/documento/enum-options', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const enumOptions = await resEnum.json();
 
       // Obtener organismos
-      const resOrg = await fetch('pagprueba2-production-b22b.up.railway.app/organismo/getorganismos', {
+      const resOrg = await fetch('https://pagprueba2-production-b22b.up.railway.app/organismo/getorganismos', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const organismos = await resOrg.json();
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Función para cargar las opciones de los enums
   async function cargarEnumOptions() {
     const token = localStorage.getItem('token');
-    const res = await fetch('pagprueba2-production-b22b.up.railway.app/documento/enum-options', {
+    const res = await fetch('https://pagprueba2-production-b22b.up.railway.app/documento/enum-options', {
         headers: { 'Authorization': `Bearer ${token}` }
     });
     const enums = await res.json();
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
       };
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(`pagprueba2-production-b22b.up.railway.app/documento/updatedocumento/${documento.id_doc}`, {
+        const res = await fetch(`https://pagprueba2-production-b22b.up.railway.app/documento/updatedocumento/${documento.id_doc}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -463,7 +463,7 @@ function mostrarModalMensaje(titulo, mensaje) {
     confirmButton.onclick = async function () {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(`pagprueba2-production-b22b.up.railway.app/documento/updatedocumento/${id_doc}`, {
+        const res = await fetch(`https://pagprueba2-production-b22b.up.railway.app/documento/updatedocumento/${id_doc}`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`,
