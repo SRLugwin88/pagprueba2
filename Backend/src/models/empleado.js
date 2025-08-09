@@ -27,7 +27,7 @@ const Empleado = sequelize.define('empleado', {
   telefono: {
     type: DataTypes.BIGINT,
     unique: true,
-    allowNull: true, // Cambiado a true para hacerlo opcional
+    allowNull: false, // Cambiado a true para hacerlo opcional
     validate: {
       isNumeric: { msg: 'Teléfono solo puede contener números.' },
       len: [10, 15] 

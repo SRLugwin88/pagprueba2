@@ -54,7 +54,7 @@ const createUsuario = async (req, res) => {
       nombre_completo: normalizedNombreCompleto,
       dni: parseInt(dni),
       direccion: direccion || null,
-      telefono: telefono ? parseInt(telefono) : null,
+      telefono:parseInt(telefono),
       email,
       estado: estado || 'Activo',
       id_dpto: departamentoExistente.id_dpto,
